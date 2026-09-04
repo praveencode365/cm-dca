@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praveen DCA Ambikapur</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #e2e8f0;
+            padding: 20px 12px;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: #0f172a;
+            margin-bottom: 5px;
+        }
+
+        /* Top About Me Section */
+        .top-aboutme-section {
+            max-width: 850px;
+            margin: 0 auto 35px;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: #ffffff;
+            border-radius: 14px;
+            padding: 24px;
+            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.25);
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .top-aboutme-photo {
+            flex-shrink: 0;
+            margin: 0 auto;
+        }
+
+        .top-aboutme-photo img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .top-aboutme-info {
+            flex: 1;
+            min-width: 240px;
+        }
+
+        .top-aboutme-info h2 {
+            font-size: 1.4rem;
+            margin-bottom: 4px;
+            color: #ffffff;
+        }
+
+        .top-aboutme-info h4 {
+            font-size: 0.95rem;
+            color: #c7d2fe;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .top-aboutme-info p {
+            font-size: 0.88rem;
+            color: #e0e7ff;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        /* Action Buttons Group in About Me */
+        .top-aboutme-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .banner-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        .banner-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.95;
+        }
+
+        .banner-insta-btn {
+            background: #ffffff;
+            color: #6d28d9;
+        }
+
+        .banner-att-btn {
+            background: #10b981;
+            color: #ffffff;
+        }
+
+        .banner-gallery-btn {
+            background: #f97316;
+            color: #ffffff;
+        }
+
+        /* Teacher Section */
+        .teacher-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        /* Base ID Card Style - Dynamic Width */
+        .id-card {
+            width: 100%;
+            max-width: 320px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+            padding: 20px 15px 15px;
+            text-align: center;
+            border: 1px solid #cbd5e1;
+            transition: transform 0.3s ease;
+        }
+
+        .id-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ID Card Locket Clip Slot */
+        .id-card::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 10px;
+            background: #94a3b8;
+            border-radius: 20px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Card Top Header Bar */
+        .card-header {
+            margin-top: 15px;
+            padding: 6px 0;
+            color: #ffffff;
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .teacher-card .card-header {
+            background: #1e293b;
+        }
+
+        .student-card .card-header {
+            background: #2563eb;
+        }
+
+        .attendance-card .card-header {
+            background: #059669;
+        }
+
+        .gallery-card .card-header {
+            background: #ea580c;
+        }
+
+        /* Photo & Icon Style */
+        .photo-box {
+            margin: 15px 0 10px;
+        }
+
+        .photo-box img {
+            width: 95px;
+            height: 95px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #cbd5e1;
+        }
+
+        .card-icon {
+            width: 95px;
+            height: 95px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .attendance-icon {
+            background-color: #d1fae5;
+            color: #059669;
+            border: 3px solid #a7f3d0;
+        }
+
+        .gallery-icon {
+            background-color: #ffedd5;
+            color: #ea580c;
+            border: 3px solid #fed7aa;
+        }
+
+        /* Profile Details */
+        .card-body h3 {
+            font-size: 1.1rem;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .info-group {
+            font-size: 0.82rem;
+            color: #475569;
+            text-align: left;
+            margin: 10px 10px 15px;
+            line-height: 1.5;
+        }
+
+        .info-group span {
+            font-weight: bold;
+            color: #1e293b;
+        }
+
+        /* Buttons */
+        .btn {
+            display: block;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 0;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .insta-btn {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+
+        .att-btn {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .gallery-btn {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+        }
+
+        /* Grid Container - Adjusted for Full Width on Mobile */
+        .section-title {
+            text-align: center;
+            font-size: 1.4rem;
+            color: #1e293b;
+            margin-bottom: 25px;
+        }
+
+        .students-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            justify-items: center;
+            width: 100%;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 640px) {
+            body {
+                padding: 12px 10px;
+            }
+
+            header h1 {
+                font-size: 1.4rem;
+            }
+
+            .top-aboutme-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 18px 14px;
+            }
+
+            .top-aboutme-info h2 {
+                font-size: 1.2rem;
+            }
+
+            .top-aboutme-buttons {
+                justify-content: center;
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .banner-btn {
+                width: 100%;
+                padding: 10px;
+                font-size: 0.85rem;
+            }
+
+            .students-container {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .id-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Computer Class ID Portal</h1>
+    </header>
+
+    <!-- Top About Me Section -->
+    <section class="top-aboutme-section">
+        <div class="top-aboutme-photo">
+            <img src="asets/WhatsApp Image 2026-09-04 at 2.14.42 PM.jpeg" alt="Praveen Painkra">
+        </div>
+        <div class="top-aboutme-info">
+            <h2>Welcome! I'm Praveen Painkra</h2>
+            <h4>📍 Ambikapur, Chhattisgarh</h4>
+            <p>यह वेब पोर्टल हमारी कंप्यूटर क्लास के लिए एक डिजिटल प्लेटफॉर्म है। इसका उद्देश्य सभी छात्रों के डिजिटल आईडी कार्ड्स, दैनिक उपस्थिति (Attendance), और क्लास की यादगार तस्वीरों (Memory Gallery) को एक ही स्थान पर व्यवस्थित एवं आसान बनाना है।</p>
+            
+            <div class="top-aboutme-buttons">
+                <a href="aboute.html" target="_blank" class="banner-btn banner-insta-btn">Aboute Me</a>
+                <a href="absent.html" target="_blank" class="banner-btn banner-att-btn">📋 Open Attendance</a>
+                <a href="gallery.html" target="_blank" class="banner-btn banner-gallery-btn">📸 View Gallery</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teacher Section -->
+    <div class="teacher-container">
+        <div class="id-card teacher-card">
+            <div class="card-header">INSTRUCTOR ID</div>
+            <div class="photo-box">
+                <img src="asets/Screenshot_2026-08-18-20-45-29-33_99c04817c0de5652397fc8b56c3b3817.jpg" alt="Teacher">
+            </div>
+            <div class="card-body">
+                <h3>Ma'am / Khushi</h3>
+                <div class="info-group">
+                    <p><span>Role:</span> Instructor</p>
+                    <p><span>Course:</span> DCA / PGDCA / BCA / TALLY</p>
+                    <p><span>ID No:</span> TCH-01</p>
+                </div>
+                <a href="https://instagram.com/teacher_username" target="_blank" class="btn insta-btn">Instagram Profile</a>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="section-title">Students & Class Cards</h2>
+
+    <main class="students-container">
+
+        <!-- Student 1 -->
+        <div class="id-card student-card">
+            <div class="card-header">STUDENT CARD</div>
+            <div class="photo-box">
+                <img src="asets/WhatsApp Image 2026-09-04 at 2.14.42 PM.jpeg" alt="Student 1">
+            </div>
+            <div class="card-body">
+                <h3>Praveen Painkra</h3>
+                <div class="info-group">
+                    <p><span>Course:</span> DCA</p>
+                    <p><span>Roll No:</span> 101</p>
+                    <p><span>Batch:</span> 2026</p>
+                </div>
+                <a href="https://www.instagram.com/praveen__painkra83/?__pwa=1#" target="_blank" class="btn insta-btn">Instagram Profile</a>
+            </div>
+        </div>
+
+        <!-- Student 2 -->
+        <div class="id-card student-card">
+            <div class="card-header">STUDENT CARD</div>
+            <div class="photo-box">
+                <img src="asets/IMG-20260818-WA0005.jpg" alt="Student 2">
+            </div>
+            <div class="card-body">
+                <h3>Nkhil</h3>
+                <div class="info-group">
+                    <p><span>Course:</span> DCA</p>
+                    <p><span>Roll No:</span> 102</p>
+                    <p><span>Batch:</span> 2026</p>
+                </div>
+                <a href="https://www.instagram.com/iam_._nishan_/?__pwa=1#" target="_blank" class="btn insta-btn">Instagram Profile</a>
+            </div>
+        </div>
+
+        <!-- Student 3 -->
+        <div class="id-card student-card">
+            <div class="card-header">STUDENT CARD</div>
+            <div class="photo-box">
+                <img src="asets/IMG_20260818_190641.jpg" alt="Student 3">
+            </div>
+            <div class="card-body">
+                <h3>Aarushi Paikra</h3>
+                <div class="info-group">
+                    <p><span>Course:</span> DCA</p>
+                    <p><span>Roll No:</span> 103</p>
+                    <p><span>Batch:</span> 2026</p>
+                </div>
+                <a href="https://www.instagram.com/ll__heyyy__aaru__ll/?__pwa=1#" target="_blank" class="btn insta-btn">Instagram Profile</a>
+            </div>
+        </div>
+
+        <!-- Student 4 -->
+        <div class="id-card student-card">
+            <div class="card-header">STUDENT CARD</div>
+            <div class="photo-box">
+                <img src="asets/night_angel_girl_71_20260818_185944930.jpg" alt="Student 4">
+            </div>
+            <div class="card-body">
+                <h3>Anjali</h3>
+                <div class="info-group">
+                    <p><span>Course:</span> DCA</p>
+                    <p><span>Roll No:</span> 104</p>
+                    <p><span>Batch:</span> 2026</p>
+                </div>
+                <a href="https://www.instagram.com/night___angel___girl___71/?__pwa=1#" target="_blank" class="btn insta-btn">Instagram Profile</a>
+            </div>
+        </div>
+
+        <!-- Student 5 -->
+        <div class="id-card student-card">
+            <div class="card-header">STUDENT CARD</div>
+            <div class="photo-box">
+                <img src="asets/Mahi_20260818_190026826.jpg" alt="Student 5">
+            </div>
+            <div class="card-body">
+                <h3>Mahi</h3>
+                <div class="info-group">
+                    <p><span>Course:</span> PGDCA</p>
+                    <p><span>Roll No:</span> 105</p>
+                    <p><span>Batch:</span> 2026</p>
+                </div>
+                <a href="https://www.instagram.com/unique_mahy/?__pwa=1#" target="_blank" class="btn insta-btn">Instagram Profile</a>
+            </div>
+        </div>
+
+        <!-- Student 6 -->
+        <div class="id-card student-card">
+            <div class="card-header">STUDENT CARD</div>
+            <div class="photo-box">
+                <img src="asets/nilu.jpg" alt="Student 6">
+            </div>
+            <div class="card-body">
+                <h3>Nikkuu</h3>
+                <div class="info-group">
+                    <p><span>Course:</span> BCA</p>
+                    <p><span>Roll No:</span> 106</p>
+                    <p><span>Batch:</span> 2026</p>
+                </div>
+                <a href="https://www.instagram.com/ll_nnikuuu_ll/?__pwa=1#" target="_blank" class="btn insta-btn">Instagram Profile</a>
+            </div>
+        </div>
+
+        <!-- Class Attendance Card -->
+        <div class="id-card attendance-card">
+            <div class="card-header">ATTENDANCE</div>
+            <div class="photo-box">
+                <div class="card-icon attendance-icon">📋</div>
+            </div>
+            <div class="card-body">
+                <h3>Class Attendance</h3>
+                <div class="info-group">
+                    <p><span>Status:</span> Daily Register</p>
+                    <p><span>Records:</span> Present / Absent</p>
+                    <p><span>Session:</span> 2026</p>
+                </div>
+                <a href="absent.html" target="_blank" class="btn att-btn">Open Attendance</a>
+            </div>
+        </div>
+
+        <!-- Memory Gallery Card -->
+        <div class="id-card gallery-card">
+            <div class="card-header">MEMORY GALLERY</div>
+            <div class="photo-box">
+                <div class="card-icon gallery-icon">📸</div>
+            </div>
+            <div class="card-body">
+                <h3>Class Memories</h3>
+                <div class="info-group">
+                    <p><span>Type:</span> Photo Album</p>
+                    <p><span>Events:</span> Class Activities</p>
+                    <p><span>Photos:</span> Event Collection</p>
+                </div>
+                <a href="gallery.html" target="_blank" class="btn gallery-btn">View Gallery</a>
+            </div>
+        </div>
+		
+		
+
+    </main>
+
+    <footer>
+            <p>&copy; Praveen Kumar Painkra. All rights reserved.</p>
+        </footer>
+
+</body>
+</html>

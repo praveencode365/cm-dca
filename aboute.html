@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praveen Kumar Painkra | Biography & Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0b0f19;
+            color: #e2e8f0;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 280px;
+            background: #111827;
+            border-right: 1px solid #1f2937;
+            position: fixed;
+            height: 100vh;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar h2 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .sidebar p.role {
+            font-size: 0.85rem;
+            color: #38bdf8;
+            margin-bottom: 30px;
+        }
+
+        .nav-links {
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-bottom: 12px;
+        }
+
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: block;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: #1e293b;
+            color: #38bdf8;
+        }
+
+        /* Main Content Container */
+        .main-content {
+            margin-left: 280px;
+            padding: 50px;
+            max-width: 950px;
+            width: 100%;
+        }
+
+        .hero-header {
+            border-bottom: 1px solid #1f2937;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .hero-header h1 {
+            font-size: 2.8rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-header p {
+            color: #38bdf8;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .section {
+            margin-bottom: 60px;
+            padding-top: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #38bdf8;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #1f2937;
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+
+        /* Personal Overview Layout with Big Image */
+        .overview-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            background: #131d2e;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #1f2937;
+        }
+
+        .profile-img-large {
+            width: 200px;
+            height: 200px;
+            border-radius: 12px; /* Slight rounded corners for professional look */
+            object-fit: cover;
+            border: 3px solid #38bdf8;
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.25);
+            flex-shrink: 0;
+        }
+
+        .overview-text {
+            flex-grow: 1;
+        }
+
+        .paragraph {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #94a3b8;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        .paragraph strong {
+            color: #f8fafc;
+        }
+
+        /* Cards Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: #192231;
+            border: 1px solid #1f2937;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .card h3 {
+            color: #f8fafc;
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Timeline Layout */
+        .timeline {
+            border-left: 2px solid #38bdf8;
+            padding-left: 20px;
+            margin-left: 10px;
+            margin-top: 20px;
+        }
+
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: #38bdf8;
+            border-radius: 50%;
+            position: absolute;
+            left: -27px;
+            top: 5px;
+        }
+
+        .timeline-item h4 {
+            color: #f8fafc;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .timeline-item span {
+            color: #38bdf8;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        .timeline-item p {
+            color: #94a3b8;
+            font-size: 0.98rem;
+            margin-top: 8px;
+            line-height: 1.7;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #1e293b;
+            color: #38bdf8;
+            border: 1px solid #334155;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            margin: 4px;
+        }
+
+        /* Social Link Buttons Style */
+        .social-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.92rem;
+            transition: 0.3s;
+        }
+
+        .btn-instagram {
+            background: #e1306c;
+            color: #ffffff;
+        }
+
+        .btn-gmail {
+            background: #ea4335;
+            color: #ffffff;
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: #ffffff;
+        }
+
+        .social-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            border-top: 1px solid #1f2937;
+            padding-top: 25px;
+            color: #64748b;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        @media (max-width: 900px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; position: relative; }
+            .main-content { margin-left: 0; padding: 25px; }
+            .overview-container { flex-direction: column; align-items: center; text-align: center; }
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div>
+            <h2>Praveen K. Painkra</h2>
+            <p class="role">Aspiring Educator & Tech Learner</p>
+            <ul class="nav-links">
+                <li><a href="#about">1. Personal Overview</a></li>
+                <li><a href="#roots">2. Roots & Family Heritage</a></li>
+                <li><a href="#education">3. Academic Journey</a></li>
+                <li><a href="#technical">4. Technical Qualifications</a></li>
+                <li><a href="#philosophy">5. Teaching Philosophy</a></li>
+                <li><a href="#strengths">6. Values & Strengths</a></li>
+                <li><a href="#vision">7. Future Goals & Vision</a></li>
+                <li><a href="#contact">8. Contact Details</a></li>
+            </ul>
+        </div>
+        <div style="font-size: 0.8rem; color: #475569;">
+            Portfolio Document v2.5
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <header class="hero-header">
+            <h1>Praveen Kumar Painkra</h1>
+            <p>Comprehensive Personal Biography & Educational Profile </p>
+        </header>
+
+        <!-- Section 1: Overview With Big Photo -->
+        <section id="about" class="section">
+            <h2 class="section-title">1. Personal Overview </h2>
+            
+            <div class="overview-container">
+                <!-- Badi Photo Jivan Parichay Ke Liye -->
+                <img src="asets/WhatsApp Image 2026-09-04 at 2.14.42 PM.jpeg" alt="Praveen Kumar Painkra" class="profile-img-large">
+                
+                <div class="overview-text">
+                    <p class="paragraph">
+                        My name is <strong>Praveen Kumar Painkra</strong>, born on <strong>March 14, 2009</strong>. I belong to Chhattisgarh and represent a dedicated generation of young learners combining strong cultural values with modern technical skills.
+                    </p>
+                    <p class="paragraph">
+                        As an individual, I am characterized by a deep curiosity for understanding digital technology, computer applications, and a strong personal commitment toward social contribution through education.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section id="roots" class="section">
+            <h2 class="section-title">2. Roots & Family Heritage</h2>
+            <p class="paragraph">
+                I hail from the peaceful village of <strong>Jujagu</strong> (Post: Kurdeg), located in the Bagicha Block of Jashpur District, Chhattisgarh. Growing up in Jujagu provided me with an environment defined by simplicity, community spirit, and respect for nature and tradition.
+            </p>
+            <p class="paragraph">
+                I am the proud son of <strong>Shri Parkash Chand Painkra</strong> and <strong>Srimati Lalita Painkra</strong>. My parents have been the foundational pillars of my life. From my early childhood, they instilled in me the core virtues of honesty, hard work, discipline, and perseverance.
+            </p>
+        </section>
+
+        <!-- Section 3 -->
+        <section id="education" class="section">
+            <h2 class="section-title">3. Detailed Educational Pathway</h2>
+            <p class="paragraph">
+                My academic path reflects a steady progression from foundational primary schooling in my native village to secondary education, leading up to higher technical studies.
+            </p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Primary Education (Class 1st to 5th)</h4>
+                    <span>Government Primary School, Jujagu</span>
+                    <p>
+                        Completed primary education in my home village Jujagu (Post: Kurdeg, Block: Bagicha, C.G.), building strong basic fundamentals.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Secondary & Senior Secondary Education (Class 6th to 12th)</h4>
+                    <span>St. Vincent Pallotti School, Rupsera</span>
+                    <p>
+                        Completed Class 6th through 12th at St. Vincent Pallotti School in Rupsera (Bhanria, Bagicha, Dist: Jaspur, C.G.), developing academic discipline and communication skills.
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <h4>Current Higher Qualification</h4>
+                    <span>Diploma in Computer Applications (DCA) — Ambikapur</span>
+                    <p>
+                        Currently staying in <strong>Ambikapur</strong> to pursue my DCA (Diploma in Computer Applications) course, gaining practical knowledge in software operations and IT tools.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section id="technical" class="section">
+            <h2 class="section-title">4. Technical & Practical Competencies</h2>
+            <p class="paragraph">
+                Through my ongoing DCA diploma in Ambikapur and independent self-study, I actively build hands-on skills in computer technologies and basic web design.
+            </p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Computer Applications</h3>
+                    <p>Hands-on training in operating system operations, document formatting, spreadsheets, and software utility tools.</p>
+                </div>
+                <div class="card">
+                    <h3>Web Technologies</h3>
+                    <p>Understanding HTML5 tags and CSS3 layout techniques to design clean, structured, and responsive static web pages.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <span class="badge">DCA Coursework</span>
+                <span class="badge">HTML5 Structural Markup</span>
+                <span class="badge">CSS3 Styling</span>
+                <span class="badge">MS Office Suite</span>
+                <span class="badge">Computer Fundamentals</span>
+            </div>
+        </section>
+
+        <!-- Section 5 -->
+        <section id="philosophy" class="section">
+            <h2 class="section-title">5. Teaching Philosophy & Vision</h2>
+            <p class="paragraph">
+                My ultimate career ambition is to become a professional <strong>Teacher</strong>. I view education as the most powerful tool for social advancement and individual empowerment.
+            </p>
+            <p class="paragraph">
+                By gaining strong computer application skills, I aim to combine digital tools with classroom teaching to help future students succeed in a modern world.
+            </p>
+        </section>
+
+        <!-- Section 6 -->
+        <section id="strengths" class="section">
+            <h2 class="section-title">6. Core Values & Personal Strengths</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Dedicated Learning</h3>
+                    <p>Consistently striving to acquire new skills daily through formal studies and independent technical practice.</p>
+                </div>
+                <div class="card">
+                    <h3>Integrity & Discipline</h3>
+                    <p>Maintaining strong personal ethics, responsibility, and focus towards my long-term career goal.</p>
+                </div>
+                <div class="card">
+                    <h3>Problem Solving</h3>
+                    <p>Approaching technical tasks and educational challenges with systematic analysis, patience, and logic.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7 -->
+        <section id="vision" class="section">
+            <h2 class="section-title">7. Long-Term Future Vision</h2>
+            <p class="paragraph">
+                My immediate goal is to successfully complete my Diploma in Computer Applications and proceed toward higher teacher-training qualifications, preparing myself to serve as a skilled and dedicated educator in Chhattisgarh.
+            </p>
+        </section>
+
+        <!-- Section 8 -->
+        <section id="contact" class="section">
+            <h2 class="section-title">8. Contact & Social Profiles</h2>
+            <div class="card">
+                <p><strong>Full Name:</strong> Praveen Kumar Painkra</p>
+                <p><strong>Father's Name:</strong> Shri Parkash Chand Painkra</p>
+                <p><strong>Mother's Name:</strong> Srimati Lalita Painkra</p>
+                <p><strong>Permanent Address:</strong> Village: Jujagu, Post: Kurdeg, Block: Bagicha, District: Jashpur, Chhattisgarh, India</p>
+                <p><strong>Current City:</strong> Ambikapur, Chhattisgarh (Pursuing DCA)</p>
+                <p><strong>Education:</strong> DCA Student | Class 12th Pass</p>
+                <p style="margin-top: 15px;"><strong>Connect With Me:</strong></p>
+                
+                <div class="social-buttons">
+                    <a href="https://www.instagram.com/praveen__painkra83?igsi=c2ZnMXRoemdmY24x" target="_blank" class="social-btn btn-instagram">
+                        📸 Instagram
+                    </a>
+                    <a href="mailto:kumarpraveen03987@gmail.com" class="social-btn btn-gmail">
+                        ✉️ Email Me
+                    </a>
+                    <a href="https://wa.me/919098802426" target="_blank" class="social-btn btn-whatsapp">
+                        💬 WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; Praveen Kumar Painkra. All rights reserved.</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>

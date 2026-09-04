@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Class Memories</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        /* Title Styling */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            background: linear-gradient(to right, #38bdf8, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            text-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        /* Glassmorphism Container */
+        .slider-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            max-width: 700px;
+            height: 400px;
+            margin-bottom: 50px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(56, 189, 248, 0.15);
+        }
+
+        /* Image Slider Box - 6 Photos Setup */
+        .slider-wrapper {
+            display: flex;
+            width: 600%; /* 6 photos = 600% width */
+            height: 100%;
+            animation: slideAnimation 20s infinite ease-in-out;
+        }
+
+        .slider-wrapper img {
+            width: 16.666%; /* 100% / 6 photos = 16.666% each */
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.95) contrast(1.05);
+        }
+
+        /* Smooth Auto Slide Animation for 6 Photos */
+        @keyframes slideAnimation {
+            0%, 13% { transform: translateX(0%); }
+            16.66%, 29.66% { transform: translateX(-16.666%); }
+            33.33%, 46.33% { transform: translateX(-33.333%); }
+            50%, 63% { transform: translateX(-50%); }
+            66.66%, 79.66% { transform: translateX(-66.666%); }
+            83.33%, 96.33% { transform: translateX(-83.333%); }
+            100% { transform: translateX(0%); }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>✨ Our Computer Class Memories ✨</h1>
+
+    <div class="slider-container">
+        <div class="slider-wrapper">
+            <img src="asets/1000074171.jpg" alt="Memory 1">
+            <img src="asets/1000072958.jpg" alt="Memory 2">
+            <img src="asets/1000070714.jpg" alt="Memory 3">
+            <img src="asets/IMG_3810.JPG" alt="Memory 4">
+            <img src="asets/IMG_3819.JPG" alt="Memory 5">
+            <img src="asets/IMG_3750.JPG" alt="Memory 6">
+        </div>
+    </div>
+    <footer>
+            <p>&copy; Praveen Kumar Painkra. All rights reserved.</p>
+        </footer>
+</body>
+</html>
